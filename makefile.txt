@@ -1,0 +1,16 @@
+CXX = g++
+CXXFLAGS = -Wall -std=c++11 -fPIC
+
+LIB_NAME = libVirtualMemory.a
+OBJS = VirtualMemory.o
+
+all: $(LIB_NAME)
+
+$(LIB_NAME): $(OBJS)
+	ar rcs $@ $^
+
+VirtualMemory.o: VirtualMemory.cpp VirtualMemory.h PhysicalMemory.h MemoryConstants.h
+	$(CXX) $(CXXFLAGS) -c VirtualMemory.cpp -o $@
+
+clean:
+	rm -f $(OBJS) $(LIB_NAME)
