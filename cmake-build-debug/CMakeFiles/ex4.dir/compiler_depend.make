@@ -374,7 +374,8 @@ CMakeFiles/ex4.dir/virtual_memory.cpp.o: ../virtual_memory.cpp \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  ../PhysicalMemory.h
+  ../PhysicalMemory.h \
+  /usr/include/c++/11/cstdint
 
 
 /usr/include/c++/11/bits/stl_heap.h:
