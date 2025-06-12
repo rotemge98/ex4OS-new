@@ -1,5 +1,6 @@
 #include <cassert>
 #include <algorithm>
+#include <cstdio>
 #include "VirtualMemory.h"
 #include "PhysicalMemory.h"
 #include "MemoryConstants.h"
@@ -63,22 +64,39 @@ void traverse(uint64_t frame, uint64_t& maxFrame, uint64_t& emptyFrame, uint64_t
       PMread(frame * PAGE_SIZE + i, &val);
       if (val != 0) {
           maxFrame = std::max(maxFrame, (uint64_t)val);
+          printf("in frame: %lu we have val: %d  and maxFrame: %lu\n",frame,
+                 val,
+                 maxFrame);
           //if we are at the last table
           if (depth + 1 == TABLES_DEPTH) {
               // Leaf node (page)
-//              uint64_t candidatePage = (virtualPrefix << (uint64_t)log2ceil(PAGE_SIZE)) | i;
-//              uint64_t distance = std::min((uint64_t)NUM_PAGES - std::abs((int64_t)targetPage - (int64_t)candidatePage), std::abs((int64_t)targetPage - (int64_t)candidatePage));
-//              uint64_t evictDistance = std::min((uint64_t)NUM_PAGES - std::abs((int64_t)targetPage - (int64_t)evictPage), std::abs((int64_t)targetPage - (int64_t)evictPage));
-//              if (distance > evictDistance) {
-//                  evictPage = candidatePage;
-//                  evictFrame = val;
-//                }
-            } else {
+              uint64_t candidatePage = (virtualPrefix << (uint64_t)log2ceil(PAGE_SIZE)) | i;
+              uint64_t distance = std::min((long )NUM_PAGES - std::abs(
+                  (int64_t)targetPage - (int64_t)candidatePage), std::abs((int64_t)targetPage - (int64_t)candidatePage));
+              uint64_t evictDistance = std::min((long )NUM_PAGES - std::abs(
+                  (int64_t)targetPage - (int64_t)evictPage), std::abs((int64_t)targetPage - (int64_t)evictPage));
+              if (distance > evictDistance) {
+                  evictPage = candidatePage;
+                  evictFrame = val;
+                }
+            } else
+            {
               // Intermediate table
-              traverse(val, maxFrame, emptyFrame, targetPage, evictFrame, evictPage, depth + 1, (virtualPrefix << log2ceil(PAGE_SIZE)) | i);
-              if (isEmptyTable(val) && emptyFrame == UINT64_MAX) {
-                  emptyFrame = val;
-                  PMwrite(frame * PAGE_SIZE + i, 0);
+
+              if (isEmptyTable (val))
+                {
+
+                  PMwrite (frame * PAGE_SIZE + i, 0);
+                  if (emptyFrame == UINT64_MAX)
+                    {
+                      emptyFrame = val;
+                    }
+                }
+              else
+                {
+                  traverse (val, maxFrame, emptyFrame, targetPage, evictFrame, evictPage,
+                            depth + 1,
+                            (virtualPrefix << log2ceil (PAGE_SIZE)) | i);
                 }
             }
         }
@@ -91,18 +109,26 @@ uint64_t allocateFrame(uint64_t forbidden, uint64_t targetPage) {
   uint64_t maxFrame = 0, emptyFrame = UINT64_MAX, evictFrame = UINT64_MAX, evictPage = 0;
   traverse(0, maxFrame, emptyFrame, targetPage, evictFrame, evictPage);
 
+  // just make sure i am not giving back the main table as empty one.
+  if(emptyFrame==0){
+      printf ("empty frame is 0- problem");
+  }
   // we have an empty frame to use (was an empty table before)
   if (emptyFrame != UINT64_MAX && emptyFrame != forbidden) {
+      printf ("empty table entrance\n");
 //      assert(emptyFrame < NUM_FRAMES);
       return emptyFrame;
     }
     // we have an unused frame at the end of all frames
   if (maxFrame + 1 < NUM_FRAMES && maxFrame + 1 != forbidden) {
+      printf ("unused frame entrance\n");
 //      assert(maxFrame + 1 < NUM_FRAMES);
+      printf ("the max frame in use is %lu\n", maxFrame);
       return maxFrame + 1;
     }
     // third praiority, swap exiting one
   if (evictFrame != UINT64_MAX && evictFrame != forbidden) {
+      printf ("swap\n");
 //      assert(evictFrame < NUM_FRAMES);
       return evictFrame;
     }
@@ -115,17 +141,14 @@ uint64_t allocateFrame(uint64_t forbidden, uint64_t targetPage) {
 
 //find a new frame, zeros it if it's a table, and links it to the parent
 uint64_t handlePageFault(uint64_t parentFrame, int indexInParent, bool isTable, uint64_t virtualPage, uint64_t forbidden = UINT64_MAX) {
-//  if(forbidden==0){
-//    forbidden=UINT64_MAX;
-//  }
   uint64_t newFrame = allocateFrame(forbidden, virtualPage);
   assert(newFrame < NUM_FRAMES);
+  PMwrite(parentFrame * PAGE_SIZE + indexInParent, newFrame);
   if (isTable) {
       for (uint64_t i = 0; i < PAGE_SIZE; ++i) {
           PMwrite(newFrame * PAGE_SIZE + i, 0);
         }
     }
-  PMwrite(parentFrame * PAGE_SIZE + indexInParent, newFrame);
   return newFrame;
 }
 
@@ -135,16 +158,20 @@ uint64_t handlePageFault(uint64_t parentFrame, int indexInParent, bool isTable, 
 bool virtualToPhysical(uint64_t virtualAddress, uint64_t &physicalAddress,
                        bool isWrite) {
   uint64_t frame = 0;
-  word_t addr;
+  word_t addr, check;
   uint64_t virtualPage = virtualAddress >> OFFSET_WIDTH;
 
   for (int level = 0; level < TABLES_DEPTH; level++) {
       int index = getLevelIndex(virtualAddress, level);
       PMread(frame * PAGE_SIZE + index, &addr);
+      printf("frame %llu, addr %d \n", (long long int) frame,addr);
 
       if (addr == 0) {
           bool isTable = (level < TABLES_DEPTH - 1);
-          addr = handlePageFault(frame, index, isTable, virtualPage,0);
+          addr = handlePageFault(frame, index, isTable, virtualPage);
+          // just a check- the valuse should be equal to addr
+          PMread(frame * PAGE_SIZE + index, &check);
+          printf("value in the new spot %d, addr %d \n", check, addr);
         }
 
       frame = addr;

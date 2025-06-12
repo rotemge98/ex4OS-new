@@ -346,6 +346,17 @@ CMakeFiles/ex4.dir/virtual_memory.cpp.o: ../virtual_memory.cpp \
   /usr/include/c++/11/new \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/cstdio \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   ../VirtualMemory.h \
   ../MemoryConstants.h \
   /usr/include/c++/11/climits \
