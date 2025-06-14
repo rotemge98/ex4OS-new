@@ -10,5 +10,5 @@ add_executable(ex4
         PhysicalMemory.cpp
         PhysicalMemory.h
         SimpleTest.cpp
-        virtual_memory.cpp
+        VirtualMemory.cpp
         VirtualMemory.h)

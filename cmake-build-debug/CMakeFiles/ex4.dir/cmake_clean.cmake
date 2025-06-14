@@ -1,12 +1,14 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ex4.dir/PhysicalMemory.cpp.o"
-  "CMakeFiles/ex4.dir/PhysicalMemory.cpp.o.d"
-  "CMakeFiles/ex4.dir/SimpleTest.cpp.o"
-  "CMakeFiles/ex4.dir/SimpleTest.cpp.o.d"
-  "CMakeFiles/ex4.dir/virtual_memory.cpp.o"
-  "CMakeFiles/ex4.dir/virtual_memory.cpp.o.d"
-  "ex4"
+  "CMakeFiles/ex4.dir/PhysicalMemory.cpp.obj"
+  "CMakeFiles/ex4.dir/PhysicalMemory.cpp.obj.d"
+  "CMakeFiles/ex4.dir/SimpleTest.cpp.obj"
+  "CMakeFiles/ex4.dir/SimpleTest.cpp.obj.d"
+  "CMakeFiles/ex4.dir/VirtualMemory.cpp.obj"
+  "CMakeFiles/ex4.dir/VirtualMemory.cpp.obj.d"
+  "ex4.exe"
+  "ex4.exe.manifest"
   "ex4.pdb"
+  "libex4.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
