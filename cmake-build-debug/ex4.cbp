@@ -93,13 +93,13 @@
 		<Unit filename="C:/os/ex4OS-new/PhysicalMemory.h">
 			<Option target="ex4"/>
 		</Unit>
-		<Unit filename="C:/os/ex4OS-new/SimpleTest.cpp">
-			<Option target="ex4"/>
-		</Unit>
 		<Unit filename="C:/os/ex4OS-new/VirtualMemory.cpp">
 			<Option target="ex4"/>
 		</Unit>
 		<Unit filename="C:/os/ex4OS-new/VirtualMemory.h">
+			<Option target="ex4"/>
+		</Unit>
+		<Unit filename="C:/os/ex4OS-new/test2_write_one_page_twice_and_read.cpp">
 			<Option target="ex4"/>
 		</Unit>
 		<Unit filename="C:/os/ex4OS-new/CMakeLists.txt">

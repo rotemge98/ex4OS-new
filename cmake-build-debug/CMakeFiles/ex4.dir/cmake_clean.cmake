@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ex4.dir/PhysicalMemory.cpp.obj"
   "CMakeFiles/ex4.dir/PhysicalMemory.cpp.obj.d"
-  "CMakeFiles/ex4.dir/SimpleTest.cpp.obj"
-  "CMakeFiles/ex4.dir/SimpleTest.cpp.obj.d"
   "CMakeFiles/ex4.dir/VirtualMemory.cpp.obj"
   "CMakeFiles/ex4.dir/VirtualMemory.cpp.obj.d"
+  "CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj"
+  "CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj.d"
   "ex4.exe"
   "ex4.exe.manifest"
   "ex4.pdb"

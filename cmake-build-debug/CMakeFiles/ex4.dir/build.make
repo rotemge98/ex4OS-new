@@ -83,20 +83,20 @@ CMakeFiles/ex4.dir/PhysicalMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ex4.dir/PhysicalMemory.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\os\ex4OS-new\PhysicalMemory.cpp -o CMakeFiles\ex4.dir\PhysicalMemory.cpp.s
 
-CMakeFiles/ex4.dir/SimpleTest.cpp.obj: CMakeFiles/ex4.dir/flags.make
-CMakeFiles/ex4.dir/SimpleTest.cpp.obj: CMakeFiles/ex4.dir/includes_CXX.rsp
-CMakeFiles/ex4.dir/SimpleTest.cpp.obj: C:/os/ex4OS-new/SimpleTest.cpp
-CMakeFiles/ex4.dir/SimpleTest.cpp.obj: CMakeFiles/ex4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\os\ex4OS-new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ex4.dir/SimpleTest.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ex4.dir/SimpleTest.cpp.obj -MF CMakeFiles\ex4.dir\SimpleTest.cpp.obj.d -o CMakeFiles\ex4.dir\SimpleTest.cpp.obj -c C:\os\ex4OS-new\SimpleTest.cpp
+CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj: CMakeFiles/ex4.dir/flags.make
+CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj: CMakeFiles/ex4.dir/includes_CXX.rsp
+CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj: C:/os/ex4OS-new/test2_write_one_page_twice_and_read.cpp
+CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj: CMakeFiles/ex4.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\os\ex4OS-new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj -MF CMakeFiles\ex4.dir\test2_write_one_page_twice_and_read.cpp.obj.d -o CMakeFiles\ex4.dir\test2_write_one_page_twice_and_read.cpp.obj -c C:\os\ex4OS-new\test2_write_one_page_twice_and_read.cpp
 
-CMakeFiles/ex4.dir/SimpleTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ex4.dir/SimpleTest.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\os\ex4OS-new\SimpleTest.cpp > CMakeFiles\ex4.dir\SimpleTest.cpp.i
+CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\os\ex4OS-new\test2_write_one_page_twice_and_read.cpp > CMakeFiles\ex4.dir\test2_write_one_page_twice_and_read.cpp.i
 
-CMakeFiles/ex4.dir/SimpleTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ex4.dir/SimpleTest.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\os\ex4OS-new\SimpleTest.cpp -o CMakeFiles\ex4.dir\SimpleTest.cpp.s
+CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\os\ex4OS-new\test2_write_one_page_twice_and_read.cpp -o CMakeFiles\ex4.dir\test2_write_one_page_twice_and_read.cpp.s
 
 CMakeFiles/ex4.dir/VirtualMemory.cpp.obj: CMakeFiles/ex4.dir/flags.make
 CMakeFiles/ex4.dir/VirtualMemory.cpp.obj: CMakeFiles/ex4.dir/includes_CXX.rsp
@@ -116,14 +116,14 @@ CMakeFiles/ex4.dir/VirtualMemory.cpp.s: cmake_force
 # Object files for target ex4
 ex4_OBJECTS = \
 "CMakeFiles/ex4.dir/PhysicalMemory.cpp.obj" \
-"CMakeFiles/ex4.dir/SimpleTest.cpp.obj" \
+"CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj" \
 "CMakeFiles/ex4.dir/VirtualMemory.cpp.obj"
 
 # External object files for target ex4
 ex4_EXTERNAL_OBJECTS =
 
 ex4.exe: CMakeFiles/ex4.dir/PhysicalMemory.cpp.obj
-ex4.exe: CMakeFiles/ex4.dir/SimpleTest.cpp.obj
+ex4.exe: CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj
 ex4.exe: CMakeFiles/ex4.dir/VirtualMemory.cpp.obj
 ex4.exe: CMakeFiles/ex4.dir/build.make
 ex4.exe: CMakeFiles/ex4.dir/linkLibs.rsp

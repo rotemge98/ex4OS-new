@@ -152,30 +152,6 @@ PhysicalMemory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/PhysicalMemory.cpp.s
 .PHONY : PhysicalMemory.cpp.s
 
-SimpleTest.obj: SimpleTest.cpp.obj
-.PHONY : SimpleTest.obj
-
-# target to build an object file
-SimpleTest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/SimpleTest.cpp.obj
-.PHONY : SimpleTest.cpp.obj
-
-SimpleTest.i: SimpleTest.cpp.i
-.PHONY : SimpleTest.i
-
-# target to preprocess a source file
-SimpleTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/SimpleTest.cpp.i
-.PHONY : SimpleTest.cpp.i
-
-SimpleTest.s: SimpleTest.cpp.s
-.PHONY : SimpleTest.s
-
-# target to generate assembly for a file
-SimpleTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/SimpleTest.cpp.s
-.PHONY : SimpleTest.cpp.s
-
 VirtualMemory.obj: VirtualMemory.cpp.obj
 .PHONY : VirtualMemory.obj
 
@@ -200,6 +176,30 @@ VirtualMemory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/VirtualMemory.cpp.s
 .PHONY : VirtualMemory.cpp.s
 
+test2_write_one_page_twice_and_read.obj: test2_write_one_page_twice_and_read.cpp.obj
+.PHONY : test2_write_one_page_twice_and_read.obj
+
+# target to build an object file
+test2_write_one_page_twice_and_read.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.obj
+.PHONY : test2_write_one_page_twice_and_read.cpp.obj
+
+test2_write_one_page_twice_and_read.i: test2_write_one_page_twice_and_read.cpp.i
+.PHONY : test2_write_one_page_twice_and_read.i
+
+# target to preprocess a source file
+test2_write_one_page_twice_and_read.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.i
+.PHONY : test2_write_one_page_twice_and_read.cpp.i
+
+test2_write_one_page_twice_and_read.s: test2_write_one_page_twice_and_read.cpp.s
+.PHONY : test2_write_one_page_twice_and_read.s
+
+# target to generate assembly for a file
+test2_write_one_page_twice_and_read.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ex4.dir\build.make CMakeFiles/ex4.dir/test2_write_one_page_twice_and_read.cpp.s
+.PHONY : test2_write_one_page_twice_and_read.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -212,12 +212,12 @@ help:
 	@echo ... PhysicalMemory.obj
 	@echo ... PhysicalMemory.i
 	@echo ... PhysicalMemory.s
-	@echo ... SimpleTest.obj
-	@echo ... SimpleTest.i
-	@echo ... SimpleTest.s
 	@echo ... VirtualMemory.obj
 	@echo ... VirtualMemory.i
 	@echo ... VirtualMemory.s
+	@echo ... test2_write_one_page_twice_and_read.obj
+	@echo ... test2_write_one_page_twice_and_read.i
+	@echo ... test2_write_one_page_twice_and_read.s
 .PHONY : help
 
 

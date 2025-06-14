@@ -105,7 +105,7 @@ void traverse(const uint64_t currentFrame, // current frame looked at in the rec
         // printf("in frame: %lu we have val: %d  and maxFrame: %lu\n",frame, val, maxFrame);
 
         //if we are at the last table
-        uint64_t d = TABLES_DEPTH;
+        // uint64_t d = TABLES_DEPTH;
         if (depth + 1 == TABLES_DEPTH) {
             // reconstruct the full page number of the currently looked-at leaf
             uint64_t candidatePage = (currentPage << (uint64_t)log2ceil(PAGE_SIZE)) | i;
@@ -118,14 +118,14 @@ void traverse(const uint64_t currentFrame, // current frame looked at in the rec
                 // calculate cyclical distance of candidate
                 // uint64_t candidateDiff = targetPage > candidatePage ? targetPage - candidatePage : candidatePage - targetPage;
                 uint64_t candidateDiff = targetPage > candidatePage ? targetPage - candidatePage : candidatePage - targetPage;
-                uint64_t distance = std::min(NUM_PAGES - candidateDiff, candidateDiff);
+                uint64_t distance = std::min(static_cast<uint64_t>(NUM_PAGES - candidateDiff), candidateDiff);
 
                 // uint64_t distance = std::min((uint64_t)NUM_PAGES - std::abs(targetPage - candidatePage),
                 //                              std::abs(targetPage - candidatePage));
 
                 // calculate cyclical distance of current evictPage
                 uint64_t evictDiff = targetPage > evictPage ? targetPage - evictPage : evictPage - targetPage;
-                uint64_t evictDistance = std::min(NUM_PAGES - evictDiff, evictDiff);
+                uint64_t evictDistance = std::min(static_cast<uint64_t>(NUM_PAGES - evictDiff), evictDiff);
 
 
                 // uint64_t evictDistance = std::min((uint64_t)NUM_PAGES - std::abs(targetPage - evictPage),
@@ -142,7 +142,11 @@ void traverse(const uint64_t currentFrame, // current frame looked at in the rec
         else
         {
             // if found an empty frame
-            if (isEmptyTable (val) && emptyFrame == UINT64_MAX && val != forbiddenFrame && depth + 1 < TABLES_DEPTH) {
+            if (isEmptyTable (val)
+                && emptyFrame == UINT64_MAX
+                && static_cast<uint64_t>(val) != forbiddenFrame
+                && depth + 1 < TABLES_DEPTH) {
+
                 PMwrite (currentFrame * PAGE_SIZE + i, 0);
                 emptyFrame = val;
             }
@@ -231,7 +235,8 @@ bool virtualToPhysical(uint64_t virtualAddress, uint64_t &physicalAddress,
                        bool isWrite) {
   // initiate first frame to be 0 - the table's root (always)
   uint64_t frame = 0;
-  word_t addr, check;
+  word_t addr;
+  // word_t check;
 
   // bitwise right shift of OFFSET_WIDTH positions to isolate the address of the page
   uint64_t pageNumber = virtualAddress >> OFFSET_WIDTH;
